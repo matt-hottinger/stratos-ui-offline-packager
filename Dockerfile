@@ -1,5 +1,6 @@
 ARG base_image=ubuntu
-FROM ${base_image}
+ARG base_image_lts=18.04
+FROM ${base_image}:${base_image_lts}
 
 RUN apt update \
   && apt install -y git curl dirmngr zip unzip gcc \
