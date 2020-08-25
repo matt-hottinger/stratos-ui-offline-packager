@@ -38,15 +38,7 @@ echo "Checking out stratos-ui at tag $1"
 git checkout $1
 fi
 
-# Building the 4.0.0 version of Stratos produces the below error:
-# An unhandled exception occurred: Cannot find module '/stratos-ui/./dist-devkit/build/index.transform.js'
-# The 4 commands below produce the missing module required for running `npm run prebuild-ui` to completion.
-npm install -g typescript
-cd src/frontend/packages/devkit/
-npm run build || true
-cd $BUILD_DIR
-
-npm install
+npm install --unsafe-perm   # unsafe-perm required as of Stratos 4.0.0 otherwise missing dist-devkit module error
 npm run prebuild-ui
 rm -Rf ./dist
 

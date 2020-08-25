@@ -7,7 +7,7 @@ RUN apt update \
   apt-transport-https lsb-release ca-certificates \
   && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
   && apt install -y nodejs \
-  && curl -L https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz -o go.tar.gz \
+  && curl -L https://dl.google.com/go/go1.15.linux-amd64.tar.gz -o go.tar.gz \
   && tar -xvf go.tar.gz \
   && mv go /usr/local/
 
