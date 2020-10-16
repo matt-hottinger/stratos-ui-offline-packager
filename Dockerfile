@@ -14,6 +14,6 @@ RUN apt update \
 ADD offline-package.sh /
 
 ENV GOROOT="/usr/local/go"
-ENV PATH="/usr/local/go/bin:${PATH}"
+ENV PATH="/usr/local/go/bin:${HOME}/go/bin:${PATH}"
 
 ENTRYPOINT ["/offline-package.sh"]
