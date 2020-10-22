@@ -9,11 +9,12 @@ RUN apt update \
   && apt install -y nodejs \
   && curl -L https://dl.google.com/go/go1.15.linux-amd64.tar.gz -o go.tar.gz \
   && tar -xvf go.tar.gz \
-  && mv go /usr/local/
+  && mv go /usr/local/ \
+  && rm go.tar.gz
 
 ADD offline-package.sh /
 
 ENV GOROOT="/usr/local/go"
-ENV PATH="/usr/local/go/bin:${HOME}/go/bin:${PATH}"
+ENV PATH="${PATH}:/root/go/bin:/usr/local/go/bin"
 
 ENTRYPOINT ["/offline-package.sh"]
